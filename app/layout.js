@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Image from 'next/image'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,6 +13,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Script
+      src="https://kit.fontawesome.com/c53c92435c.js"
+      crossorigin="anonymous"
+    ></Script>
       <body className={inter.className}><div className="hidden bg-white2 drop-shadow md:flex content-center p-2 gap-8 px-6">
         <div className="flex items-center gap-3">
           <i className="fa-solid fa-phone text-black1" />
@@ -28,12 +33,13 @@ export default function RootLayout({ children }) {
       </div> {children} 
       <footer className="flex items-center m-4 justify-center md:m-8">
         <div className="flex items-center gap-5 md:gap-12">
-          <Image
-            className="hidden md:h-[95px] md:block"
+         <div className="relative hidden md:h-[95px] w-48 md:block">
+         <Image
             src="/IMG/logo.png"
             alt="patras.sk"
             fill
           />
+         </div>
           <p className="font-plus-jakarta text-[8px] md:text-h7">
             patras@patras.sk
           </p>

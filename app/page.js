@@ -1,25 +1,32 @@
 import Image from "next/image";
+import { getProducts } from "@/lib/products";
+import ProductCard from "./componets/productcard";
 
-export default function Home() {
+export default async function Home() {
+  const products = await getProducts();
+  console.log("products", products);
+  //
+
   return (
     <div className="min-h-screen flex flex-col">
-      
       <nav className="flex justify-between pt-7 px-4 md:px-6">
         <div className="flex items-center m-3 md:m-5 relative w-8">
           <a href="index.html">
-            {/* <Image
-              className="h-12 md:h-[95px]"
-              src="/IMG/logo.png"
-              alt="patras.sk"
-              fill
-            /> */}
+            {
+              <Image
+                className="h-12 md:h-[95px]"
+                src="/IMG/logo.png"
+                alt="patras.sk"
+                fill
+              />
+            }
           </a>
         </div>
-        <div className="flex items-±scenter">
+        <div className="flex items-center">
           <ul className="flex ml-auto">
             <li className="m-4 md:m-5 font-plus-jakarta">
               <a
-                href="products.html"
+                href=""
                 className="no-underline text-black1 text-h7 md:text-h6"
               >
                 Produkty
@@ -37,13 +44,15 @@ export default function Home() {
         </div>
       </nav>
 
-      <div className="flex items-center justify-center h-full">
- {/* <Image
-          src="/IMG/main_frame.png"
-          alt="main"
-          className="max-w-full py-8 md:py-16"
-          fill
-        /> */}
+      <div className="flex items-center justify-center h-8">
+        {
+          <Image
+            src="/IMG/main_frame.png"
+            alt="main"
+            className="max-w-full py-8 md:py-16"
+            fill
+          />
+        }
       </div>
       <h1 className="font-plus-jakarta text-h5 self-center drop-shadow-md md:text-h1">
         Produkty
