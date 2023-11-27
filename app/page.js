@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getProducts } from "@/lib/products";
 import ProductCard from "./componets/productcard";
 import { IMAGES_MANIFEST } from "next/dist/shared/lib/constants";
+import Card from "./componets/card";
 
 
 export default async function Home() {
@@ -58,28 +59,10 @@ export default async function Home() {
         className="p-0 w-28 self-center md:w-64"
       />
       <div className="flex justify-center p-4 md:p-12 space-x-4 md:space-x-12">
-        <button
-          type="button"
-          href=""
-          className="border border-black2 rounded-3xl drop-shadow-lg p-4 w-80 hover:bg-blue2 md:p-8"
-        >
-          <div className="w-full justify-center">
-            <img src="/IMG/kavomat1.png" alt="kavomat1" />
-          </div>
-          <h1 className="font-plus-jakarta text-center pt-8">Kavomaty</h1>
-        </button>
-        <button className="border border-black2 rounded-3xl drop-shadow-md w-80 hover:bg-blue2 p-4 md:p-8">
-          <div className="w-full justify-center">
-            <img src="/IMG/lima1.png" alt="vodomat" />
-          </div>
-          <h1 className="font-plus-jakarta text-center pt-8">Davkovac vody</h1>
-        </button>
-        <button className="border border-black2 rounded-3xl drop-shadow-md hover:bg-blue2 p-4 md:p-8">
-          <div>
-            <img src="/IMG/vodovac1.png" alt="vodovac" className="w-full" />
-          </div>
-          <h1 className="font-plus-jakarta text-center pt-8">Vodovac</h1>
-        </button>
+
+        <Card image={"/IMG/kavomat1.png"} label="Kavomaty"/>
+        <Card image={"/IMG/lima1.png"} label="Davkovac vody"/>
+        <Card image={"/IMG/vodovac1.png"} label="Vodovac"/>
       </div>
       <div className="flex justify-center p-4 md:p-10">
         <img src="/IMG/frame_about.png" alt="onas" />

@@ -22,14 +22,14 @@ export default function RootLayout({ children }) {
       ></Script>
       <body className={plus_jakarta.className}>
         <div className="hidden bg-white2 drop-shadow md:flex content-center p-2 gap-8 px-6">
-          <div className="flex items-center gap-3">
+          <a className="flex items-center gap-3" href="tel:+421 905 249 998">
             <i className="fa-solid fa-phone text-black1" />
             <p className="font-plus-jakarta">+421 905 249 998</p>
-          </div>
-          <div className="flex items-center gap-3">
+          </a>
+          <a className="flex items-center gap-3" href="mailto:patras@patras.sk">
             <i className="fa-solid fa-envelope text-black1" />
             <p className="font-plus-jakarta">patras@patras.sk</p>
-          </div>
+          </a>
           <div className="ml-auto flex flex-row gap-4">
             <p className="font-plus-jakarta">Kontakty</p>
             <p className="font-plus-jakarta">O nas</p>
