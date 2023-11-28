@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { getProducts } from "@/lib/products";
-import ProductCard from "./componets/productcard";
 import { IMAGES_MANIFEST } from "next/dist/shared/lib/constants";
 import Card from "./componets/card";
 
@@ -20,10 +19,10 @@ export default async function Home() {
             objectFit="contain"
             objectPosition="top"
           />
-          
+
           <nav className="relative flex justify-between px-4 md:px-6 z-20">
             <div className="flex items-center m-3  md:m-5">
-              <a href="">
+              <a href="/app">
                 <img
                   className="h-12 md:h-[95px]"
                   src="/IMG/logo.png"
@@ -51,17 +50,19 @@ export default async function Home() {
                 </button>
               </a>
             </div>
-          </nav><div className="relative left-[8%] w-[20vw] h-[25vw] md:w-[30vw] md:h-[35vw]">
+          </nav>
+          <div className="relative left-[8%] w-[20vw] h-[25vw] md:w-[30vw] md:h-[35vw]">
             <Image
-            src="/IMG/kavomat.png"
-            alt="main"
-            fill
-            className="relative z-20"
-            objectFit="contain"
-            objectPosition="top"
-          /></div>
+              src="/IMG/kavomat.png"
+              alt="main"
+              fill
+              className="relative z-20"
+              objectFit="contain"
+              objectPosition="top"
+            />
+          </div>
           <h1 className="md:text-h1 absolute right-[5vw] top-[17vw] z-20 max-w-[13ch]">
-          Postaráme sa o váš pitný <b className="text-blue1"> REŽIM</b>
+            Postaráme sa o váš pitný <b className="text-blue1"> REŽIM</b>
           </h1>
         </div>
       </div>
