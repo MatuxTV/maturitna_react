@@ -20,13 +20,16 @@ export default async function Home() {
             objectPosition="top"
           />
 
-          <nav className="relative flex justify-between px-4 md:px-6 z-20">
-            <div className="flex items-center m-3  md:m-5">
+          <nav className="relative flex justify-between px-4 md:px-8 z-20">
+            <div className="flex items-center m-3 md:m-6">
               <a href="/app">
-                <img
-                  className="h-12 md:h-[95px]"
+                <Image
+                  className="absolute z-20 m-2 md:m-6"
                   src="/IMG/logo.png"
                   alt="patras.sk"
+                  fill
+                  objectFit="contain"
+                  objectPosition="left"
                 />
               </a>
             </div>
