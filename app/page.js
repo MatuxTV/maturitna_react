@@ -4,51 +4,66 @@ import ProductCard from "./componets/productcard";
 import { IMAGES_MANIFEST } from "next/dist/shared/lib/constants";
 import Card from "./componets/card";
 
-
 export default async function Home() {
   const products = await getProducts();
   console.log("products", products);
 
   return (
     <div className="min-h-screen flex flex-col">
-      <nav className="flex justify-between pt-7 px-4 md:px-6">
-        <div className="flex items-center m-3 md:m-5">
-          <a href="index.html">
-            <img
-              className="h-12 md:h-[95px]"
-              src="/IMG/logo.png"
-              alt="patras.sk"
-            />
-          </a>
-        </div>
-        <div className="flex items-center">
-          <ul className="flex ml-auto">
-            <li className="m-4 md:m-5 font-plus-jakarta">
-              <a
-                href="products.html"
-                className="no-underline text-black1 text-h7 md:text-h6"
-              >
-                Produkty
-              </a>
-            </li>
-          </ul>
-          <a href="cart.html" className="ml-auto">
-            <button
-              type="button"
-              className="bg-blue1 w-24 h-12 b-r rounded-lg hover:bg-blue2 hover:drop-shadow-md md:"
-            >
-              <i className="fas fa-cart-shopping text-white1" />
-            </button>
-          </a>
-        </div>
-      </nav>
       <div className="flex items-center justify-center h-full">
-        <img
-          src="/IMG/main_frame.png"
-          alt="main"
-          className="max-w-full py-8 md:py-16"
-          fill
-        />
+        <div className="relative top-0 w-full h-[60vw] md:h-[100vh]">
+          <Image
+            src="/IMG/banner.png"
+            alt="main"
+            fill
+            className="relative z-10"
+            objectFit="contain"
+            objectPosition="top"
+          />
+          
+          <nav className="relative flex justify-between px-4 md:px-6 z-20">
+            <div className="flex items-center m-3  md:m-5">
+              <a href="">
+                <img
+                  className="h-12 md:h-[95px]"
+                  src="/IMG/logo.png"
+                  alt="patras.sk"
+                />
+              </a>
+            </div>
+            <div className="flex items-center">
+              <ul className="flex ml-auto">
+                <li className="m-4 md:m-5 font-plus-jakarta">
+                  <a
+                    href="/products"
+                    className="no-underline text-black1 text-h7 md:text-h6"
+                  >
+                    Produkty
+                  </a>
+                </li>
+              </ul>
+              <a href="cart.html" className="ml-auto">
+                <button
+                  type="button"
+                  className="bg-blue1 w-24 h-12 b-r rounded-lg hover:bg-blue2 hover:drop-shadow-md md:"
+                >
+                  <i className="fas fa-cart-shopping text-white1" />
+                </button>
+              </a>
+            </div>
+          </nav><div className="relative left-[8%] w-[20vw] h-[25vw] md:w-[30vw] md:h-[35vw]">
+            <Image
+            src="/IMG/kavomat.png"
+            alt="main"
+            fill
+            className="relative z-20"
+            objectFit="contain"
+            objectPosition="top"
+          /></div>
+          <h1 className="md:text-h1 absolute right-[5vw] top-[17vw] z-20 max-w-[13ch]">
+          Postaráme sa o váš pitný <b className="text-blue1"> REŽIM</b>
+          </h1>
+        </div>
       </div>
       <h1 className="font-plus-jakarta text-h5 self-center drop-shadow-md md:text-h1">
         Produkty
@@ -59,10 +74,9 @@ export default async function Home() {
         className="p-0 w-28 self-center md:w-64"
       />
       <div className="flex justify-center p-4 md:p-12 space-x-4 md:space-x-12">
-
-        <Card image={"/IMG/kavomat1.png"} label="Kavomaty"/>
-        <Card image={"/IMG/lima1.png"} label="Davkovac vody"/>
-        <Card image={"/IMG/vodovac1.png"} label="Vodovac"/>
+        <Card image={"/IMG/kavomat1.png"} label="Kavomaty" />
+        <Card image={"/IMG/lima1.png"} label="Davkovac vody" />
+        <Card image={"/IMG/vodovac1.png"} label="Vodovac" />
       </div>
       <div className="flex justify-center p-4 md:p-10">
         <img src="/IMG/frame_about.png" alt="onas" />
@@ -92,7 +106,6 @@ export default async function Home() {
           />
         </div>
       </div>
-      
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
 import Script from "next/script";
+import Head from "next/head";
 
 const plus_jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
