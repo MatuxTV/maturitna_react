@@ -1,12 +1,31 @@
 import Image from "next/image";
 import { getProducts } from "@/lib/products";
-import { IMAGES_MANIFEST } from "next/dist/shared/lib/constants";
 import Card from "./componets/card";
+import Nav from "./componets/nav";
+
+const ABT = (props) => {
+  return (
+    <>
+      <div className="flex justify-center bg-white2">
+        <div className="bg-blue1">
+          <Image>
+            src={props.image}
+            alt="icon"
+            fill
+            className="relative z-20"
+            objectFit="contain"
+            objectPosition="top"
+          </Image>
+        </div>
+        <>
+        <p className=" text-white1">{props.text}</p>
+        </>
+      </div>
+    </>
+  );
+};
 
 export default async function Home() {
-  const products = await getProducts();
-  console.log("products", products);
-
   return (
     <div className="min-h-screen flex flex-col">
       <div className="flex items-center justify-center h-full">
@@ -20,41 +39,11 @@ export default async function Home() {
             objectPosition="top"
           />
 
-          <nav className="relative flex justify-between px-4 md:px-8 z-20">
-            <div className="flex items-center m-3 md:m-6">
-              <a href="/app">
-                <Image
-                  className="absolute z-20 m-2 md:m-6"
-                  src="/IMG/logo.png"
-                  alt="patras.sk"
-                  fill
-                  objectFit="contain"
-                  objectPosition="left"
-                />
-              </a>
-            </div>
-            <div className="flex items-center">
-              <ul className="flex ml-auto">
-                <li className="m-4 md:m-5 font-plus-jakarta">
-                  <a
-                    href="/products"
-                    className="no-underline text-black1 text-h7 md:text-h6"
-                  >
-                    Produkty
-                  </a>
-                </li>
-              </ul>
-              <a href="cart.html" className="ml-auto">
-                <button
-                  type="button"
-                  className="bg-blue1 w-24 h-12 b-r rounded-lg hover:bg-blue2 hover:drop-shadow-md md:"
-                >
-                  <i className="fas fa-cart-shopping text-white1" />
-                </button>
-              </a>
-            </div>
-          </nav>
-          <div className="relative left-[8%] w-[20vw] h-[25vw] md:w-[30vw] md:h-[35vw]">
+          <div>
+            <Nav />
+          </div>
+
+          <div className="relative left-[6%] w-[20vw] h-[25vw] md:w-[30vw] md:h-[35vw]">
             <Image
               src="/IMG/kavomat.png"
               alt="main"
@@ -83,7 +72,11 @@ export default async function Home() {
         <Card image={"/IMG/vodovac1.png"} label="Vodovac" />
       </div>
 
-      
+      <div>
+        <ABT image={"/IMG/kavomat1.png"} text={"Produkty pre zakaznikov"}/>
+        <ABT image={"/IMG/kavomat1.png"} text={"Produkty pre zakaznikov"}/>
+        <ABT image={"/IMG/kavomat1.png"} text={"Produkty pre zakaznikov"}/>
+      </div>
 
       <div className="flex bg-white2 w-[88%] max-w-6xl m-auto rounded-3xl justify-between md:rounded-[40px] h-24 md:h-64 max-h-64">
         <div>

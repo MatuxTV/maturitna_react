@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Nav = () => {
   return (
-    <nav className="relative flex justify-between px-4 md:px-8 z-20">
+    <nav className="relative items-center flex justify-between px-4 md:px-8 z-20">
       <div className="flex items-center m-3 md:m-6">
         <a href="/app">
           <Image
