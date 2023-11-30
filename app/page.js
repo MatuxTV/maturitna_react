@@ -83,39 +83,7 @@ export default async function Home() {
         <Card image={"/IMG/vodovac1.png"} label="Vodovac" />
       </div>
 
-      <div className="flex items-center justify-between bg-blue2">
-        <div>
-          <div className="bg-blue1">
-            <Image className="">
-
-            </Image>
-          </div>
-          <p>
-            PREDAJ VOD A NEALKOHOLICKYCH NAPOJOV
-          </p>
-        </div>
-        <div className="bg-blue1">
-            <Image className="">
-
-            </Image>
-          </div>
-          <p>
-            PRENAJOM PREDAJNYCH AUTOMATOV
-          </p>
-        <div>
-        <div className="bg-blue1"> 
-            <Image className="">
-
-            </Image>
-          </div>
-          <p>
-            DLHOROCNE SKUSENOSTI
-          </p>
-        </div>
-        <div>
-
-        </div>
-      </div>
+      
 
       <div className="flex bg-white2 w-[88%] max-w-6xl m-auto rounded-3xl justify-between md:rounded-[40px] h-24 md:h-64 max-h-64">
         <div>
