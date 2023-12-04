@@ -3,32 +3,25 @@ import { getProducts } from "@/lib/products";
 import Card from "./componets/card";
 import Nav from "./componets/nav";
 import Head from "next/head";
+import Script from "next/script";
 
 const ABT = (props) => {
   return (
-    <>
-      <div className="flex justify-center bg-white2">
-        <div className="bg-blue1">
-          <Image
-            src={props.obrazok}
-            alt="icon"
-            fill
-            className="relative z-20"
-            objectFit="contain"
-            objectPosition="top"
-          />
-        </div>
-        <>
-        <p className=" text-white1">{props.meno}</p>
-        </>
+    <div className="flex flex-col items-center m-3 text-center w-1/3">
+      <div className="bg-blue2 relative w-full h-40 rounded-xl">
+        <Image className="p-8" src={props.type} fill objectFit="contain" />
       </div>
-    </>
+      <div className="flex align-center">
+        <p className=" bg-white text-white1 w-full pt-6 font-plus-jakarta text-h5 mx-auto">
+          {props.title}
+        </p>
+      </div>
+    </div>
   );
 };
 
 export default async function Home() {
   return (
-
     <div className="min-h-screen flex flex-col">
       <div className="flex items-center justify-center h-full">
         <div className="relative top-0 w-full h-[60vw] md:h-[100vh]">
@@ -42,7 +35,7 @@ export default async function Home() {
           />
 
           <div className="relative">
-            <Nav style={{zIndex : -30}} />
+            <Nav style={{ zIndex: -30 }} />
           </div>
 
           <div className="relative left-[6%] w-[20vw] h-[25vw] md:w-[30vw] md:h-[35vw]">
@@ -74,8 +67,13 @@ export default async function Home() {
         <Card image={"/IMG/vodovac1.png"} label="Vodovac" />
       </div>
 
-      <div className="flex h-64">
-        <ABT 
+      <div className="m-24 mx-44  flex  h-86 bg-blue1 justify-center rounded-3xl">
+        <ABT
+          type={"/IMG/BOTTLE.png"}
+          title={"PREDAJ VOD A NEALKOHOLICKYCH NAPOJOV"}
+        />
+        <ABT type={"/IMG/GLASS.png"} title={"PRENAJOM PREDAJNYCH AUTOMATOV"} />
+        <ABT type={"/IMG/AGREE.png"} title={"DLHOROCNE SKUSENOSTI"} />
       </div>
 
       <div className="flex bg-white2 w-[88%] max-w-6xl m-auto rounded-3xl justify-between md:rounded-[40px] h-24 md:h-64 max-h-64">
