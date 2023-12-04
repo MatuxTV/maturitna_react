@@ -7,7 +7,7 @@ const Nav = () => {
       <div className="flex items-center m-3 md:m-6">
         <a href="/app">
           <Image
-            className="absolute z-20 m-2 md:m-6"
+            className=" object-cover absolute z-20 m-1 md:m-6"
             src="/IMG/logo.png"
             alt="patras.sk"
             fill

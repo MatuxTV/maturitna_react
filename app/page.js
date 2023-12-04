@@ -2,23 +2,24 @@ import Image from "next/image";
 import { getProducts } from "@/lib/products";
 import Card from "./componets/card";
 import Nav from "./componets/nav";
+import Head from "next/head";
 
 const ABT = (props) => {
   return (
     <>
       <div className="flex justify-center bg-white2">
         <div className="bg-blue1">
-          <Image>
-            src={props.image}
+          <Image
+            src={props.obrazok}
             alt="icon"
             fill
             className="relative z-20"
             objectFit="contain"
             objectPosition="top"
-          </Image>
+          />
         </div>
         <>
-        <p className=" text-white1">{props.text}</p>
+        <p className=" text-white1">{props.meno}</p>
         </>
       </div>
     </>
@@ -27,6 +28,7 @@ const ABT = (props) => {
 
 export default async function Home() {
   return (
+
     <div className="min-h-screen flex flex-col">
       <div className="flex items-center justify-center h-full">
         <div className="relative top-0 w-full h-[60vw] md:h-[100vh]">
@@ -39,8 +41,8 @@ export default async function Home() {
             objectPosition="top"
           />
 
-          <div>
-            <Nav />
+          <div className="relative">
+            <Nav style={{zIndex : -30}} />
           </div>
 
           <div className="relative left-[6%] w-[20vw] h-[25vw] md:w-[30vw] md:h-[35vw]">
@@ -48,7 +50,7 @@ export default async function Home() {
               src="/IMG/kavomat.png"
               alt="main"
               fill
-              className="relative z-20"
+              className="relative z-10"
               objectFit="contain"
               objectPosition="top"
             />
@@ -72,10 +74,8 @@ export default async function Home() {
         <Card image={"/IMG/vodovac1.png"} label="Vodovac" />
       </div>
 
-      <div>
-        <ABT image={"/IMG/kavomat1.png"} text={"Produkty pre zakaznikov"}/>
-        <ABT image={"/IMG/kavomat1.png"} text={"Produkty pre zakaznikov"}/>
-        <ABT image={"/IMG/kavomat1.png"} text={"Produkty pre zakaznikov"}/>
+      <div className="flex h-64">
+        <ABT 
       </div>
 
       <div className="flex bg-white2 w-[88%] max-w-6xl m-auto rounded-3xl justify-between md:rounded-[40px] h-24 md:h-64 max-h-64">
@@ -96,10 +96,12 @@ export default async function Home() {
           </div>
         </div>
         <div>
-          <img
-            className="flex w-[100%] h-full"
+          <Image
+            className="object-cover flex h-full"
             src="/IMG/z_vodovac.png"
             alt="img"
+            width={700}
+            height={500}
           />
         </div>
       </div>
