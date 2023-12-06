@@ -4,11 +4,11 @@ import Link from "next/link";
 
 const Nav = () => {
   return (
-    <nav className="relative items-center flex justify-between px-4 md:px-8 z-20">
-      <div className="flex items-center m-3 md:m-6">
+    <nav className="relative items-center flex justify-between px-4 md:py-2 z-20">
+      <div className="flex items-center">
         <Link href="/">
           <Image
-            className=" object-cover absolute z-20 m-1 md:m-6"
+            className=" object-cover absolute z-20 md:m-6"
             src="/IMG/logo.png"
             alt="patras.sk"
             fill
@@ -17,7 +17,7 @@ const Nav = () => {
           />
         </Link>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center m-4,5">
         <ul className="flex ml-auto">
           <li className="m-4 md:m-5 font-plus-jakarta">
             <Link

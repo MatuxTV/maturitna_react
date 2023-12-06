@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getProducts } from "@/lib/products";
+import { getProducts } from "@/lib/directus";
 import Card from "./componets/card";
 import Nav from "./componets/nav";
 import Head from "next/head";
@@ -35,7 +35,7 @@ export default async function Home() {
           />
 
           <div className="relative">
-            <Nav style={{ zIndex: -30 }} />
+            <Nav  />
           </div>
 
           <div className="relative left-[6%] w-[20vw] h-[25vw] md:w-[30vw] md:h-[35vw]">

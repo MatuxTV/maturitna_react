@@ -3,6 +3,7 @@ import "./globals.css";
 import Image from "next/image";
 import Script from "next/script";
 import Head from "next/head";
+import Link from "next/link";
 
 const plus_jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
             <p className="font-plus-jakarta">O nas</p>
           </div>
         </div>{" "}
+        
         {children}
         <footer className="flex items-center m-4 justify-center md:m-8">
           <div className="flex items-center gap-5 md:gap-12">
