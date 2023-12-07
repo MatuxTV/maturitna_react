@@ -1,14 +1,20 @@
-import React from "react";
+"use client"
+
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import directus from "/lib/directus";
 import { readItems } from "@directus/sdk";
 
-// async function getProducts() {
-//   return directus.request(readItems("produkty"));
-// }
+async function getProducts() {
+  return directus.request(readItems("produkty"));
+}
 
-export default async function ProductCard() {
-  // const products = await getProducts();
+export default function ProductCard() {
+  const [data,setData]=useState();
+  useEffect(()=>{
+    setData(getProducts());
+  },[])
+  console.log(data)
   return (
     <button className="bg-white1 w-64 h-80 border-2 rounded-2xl hover:bg-blue2 ">
       <div className="flex justify-center relative m-6">
