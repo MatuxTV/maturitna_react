@@ -5,16 +5,19 @@ import Link from "next/link";
 const Nav = () => {
   return (
     <nav className="relative items-center flex justify-between px-4 md:py-2 z-20">
-      <div className="flex items-center">
+      <div className="flex items-center ">
         <Link href="/">
+          <div className="container relative z-20 md:m-6">
           <Image
-            className=" object-cover absolute z-20 md:m-6"
+            className="z-20 md:m-6"
             src="/IMG/logo.png"
             alt="patras.sk"
             fill
             objectFit="contain"
             objectPosition="left"
           />
+          </div>
+          
         </Link>
       </div>
       <div className="flex items-center m-4,5">

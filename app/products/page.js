@@ -9,7 +9,7 @@ export const Produkty = async () => {
   // console.log(products);
   // const renderCards = () => {
 
-  //   while (products.id == 0 ){    
+  //   while (products.id != 0 ){
   //       <div className="flex justify-between m-16">
   //         <ProductCard />
   //         <ProductCard />
@@ -20,7 +20,6 @@ export const Produkty = async () => {
   //   return renderCards;
   // }
 
-
   return (
     <div>
       <Nav />
@@ -30,7 +29,14 @@ export const Produkty = async () => {
             Produkty
           </h1>
         </div>
-        <ProductCard />
+        <div className="flex flex-wrap  space-x-4 justify-between m-16">
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+        
+          
+  
+        </div>
       </div>
 
       {/* {products.data.map((product) => (<ProductCard meno={"meno"} key={product.id}/>))} */}
