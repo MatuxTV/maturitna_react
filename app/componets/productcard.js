@@ -1,45 +1,24 @@
-"use client"
-import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import directus from "/lib/directus";
-import { readItems } from "@directus/sdk";
 
-async function getProducts() {
-  return directus.request(readItems("produkty"));
-}
-
-async function fetchData() {
-  const data = await getProducts();
-  return data;
-}
-
-export default function ProductCard() {
-  const [data, setData] = useState();
-
-  useEffect(() => {
-    const fetchDataAndSetState = async () => {
-      const result = await fetchData();
-      setData(result);
-    };
-
-    fetchDataAndSetState();
-  }, []);
-
-  
-
+export default async function ProductCard(data) {
   return (
-    <button className="bg-white1 md:w-96 md:h-[400px] border-2 border-white2 rounded-2xl hover:bg-blue2 ">
-    <div className="flex justify-center relative m-6">
-      {/* <Image
-        src={data.obrazok}
-        alt="Product Image"
-        width={140}
-        height={100}
-      /> */}
-    </div>
-    <div className="flex justify-center font-plus-jakarta text-h6">
-      {/* <p>{data.meno}</p> */}
-    </div>
-  </button>
+    <button className="bg-white1 md:w-96 md:h-[400px] flex flex-col border-2 border-white2 rounded-2xl hover:bg-blue2 ">
+      <div className="justify-center h-full w-full relative m-4">
+        <Image
+          // className="image"
+          src={`${process.env.DIRECTUS}assets/${data.obrazok}`}
+          alt="Product Image"
+          fill
+          // objectFit="contain"
+          // objectPosition="center"
+          // width={1500}
+          // height={1500}
+        />
+      </div>
+      <div className=" w-full font-plus-jakarta text-h5 relative">
+        <p className=" text-center relative z-20">{data.nazov}</p>
+        <div className=" bg-blue1 w-16 h-2 absolute rounded-lg bottom-0 z-10  rotate-[-4deg] left-[180px] "></div>
+      </div>
+    </button>
   );
 }

@@ -9,7 +9,7 @@ const ABT = (props) => {
   return (
     <div className="flex flex-col items-center m-3 text-center w-1/3">
       <div className="bg-blue2 relative w-full h-40 rounded-xl">
-        <Image className="p-8" src={props.type} fill objectFit="contain" />
+        <Image className="p-8 image" src={props.type} fill alt=""/>
       </div>
       <div className="flex align-center">
         <p className=" bg-white text-white1 w-full pt-6 font-plus-jakarta text-h5 mx-auto">

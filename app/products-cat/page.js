@@ -9,7 +9,7 @@ import { readItems } from "@directus/sdk";
 export const Produkty = async () => {
   function getProducts() {
     // return directus.request(readItems("produkty"));
-    return fetch(process.env.DIRECTUS + "items/produkty").then((res) =>res.json(), {cache :"no-store"})
+    return fetch(process.env.DIRECTUS + "items/kategoria").then((res) =>res.json(), {cache :"no-store"})
   }
   
   async function fetchData() {
