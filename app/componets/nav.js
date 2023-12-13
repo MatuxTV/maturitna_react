@@ -24,7 +24,7 @@ const Nav = () => {
         <ul className="flex ml-auto">
           <li className="m-4 md:m-5 font-plus-jakarta">
             <Link
-              href="/products"
+              href="/products-cat"
               className="no-underline text-black1 text-h7 md:text-h6"
             >
               Produkty
@@ -34,9 +34,9 @@ const Nav = () => {
         <Link href="cart.html" className="ml-auto">
           <button
             type="button"
-            className="bg-blue1 w-24 h-12 b-r rounded-lg hover:bg-blue2 hover:drop-shadow-md md:"
+            className="bg-blue1 w-24 h-12 rounded-lg hover:bg-blue2 hover:drop-shadow-md shadow"
           >
-            <i className="fas fa-cart-shopping text-white1" />
+            <i className="fas fa-cart-shopping text-white1"/>
           </button>
         </Link>
       </div>

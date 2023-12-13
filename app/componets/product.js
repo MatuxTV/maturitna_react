@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-export default async function ProductCard(data) {
+export default async function Product(data) {
   return (
-    <button className="bg-white1 md:w-96 md:h-[400px] flex flex-col border-2 border-white2 rounded-2xl hover:bg-blue2 ">
-      <div className="justify-center h-72 w-full relative my-5">
+    <button className="bg-white2 md:w-96 md:h-[400px] flex flex-col border-2 border-white2 rounded-2xl hover:bg-blue2 ">
+      <div className="justify-center border-1 border-black2 h-72 w-full relative  bg-white2">
         <Image
           className="image"
           src={`${process.env.DIRECTUS}assets/${data.obrazok}`}

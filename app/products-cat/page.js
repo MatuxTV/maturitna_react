@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import Nav from "../componets/nav";
 import ProductCard from "../componets/productcard";
 import { getProducts } from "@/lib/directus";
@@ -8,7 +7,6 @@ import { readItems } from "@directus/sdk";
 
 export const Produkty = async () => {
   function getProducts() {
-    // return directus.request(readItems("produkty"));
     return fetch(process.env.DIRECTUS + "items/kategoria").then((res) =>res.json(), {cache :"no-store"})
   }
   
@@ -20,7 +18,7 @@ export const Produkty = async () => {
   const res= await fetchData();
   const data = res.data;
   
-  console.log(data)
+  
   return (
     <div>
       <Nav />
@@ -30,7 +28,7 @@ export const Produkty = async () => {
             Produkty
           </h1>
         </div>
-        <div className="flex flex-wrap  space-x-4 justify-between m-16">
+        <div className="flex flex-wrap flex-row space-x-16 m-16">
         {data?.map((item)=>{
           return<ProductCard {...item} key={item.id}/>
         })}
