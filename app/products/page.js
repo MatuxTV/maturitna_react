@@ -37,9 +37,9 @@ export const Produkty = async () => {
       
       <div>
         <div>
-          <p className=" font-plus-jakarta">Produkty/{data.kategoria}</p>
+          <p className="flex text-h4 m-10 font-plus-jakarta">Produkty/{data.meno}</p>
         </div>
-        <div className="flex flex-wrap justify-center">
+        <div className="flex flex-wrap justify-start m-8 space-x-5">
           {data?.map((item) => {
             return <Product {...item} key={item.id} />;
           })}

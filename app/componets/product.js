@@ -1,23 +1,24 @@
 import Image from "next/image";
+import ToCart from "../componets/tocart";
 
-export default async function Product(data) {
+export default function Product(data) {
   return (
-    <button className="bg-white2 md:w-96 md:h-[400px] flex flex-col border-2 border-white2 rounded-2xl hover:bg-blue2 ">
-      <div className="justify-center border-1 border-black2 h-72 w-full relative  bg-white2">
+    <button className="bg-white2 md:w-96 md:h-[400px] flex flex-col border-2 items-center border-white2 rounded-2xl hover:bg-blue2 ">
+      <div className="justify-center item-center border-1 border-black2 border-opacity-1 h-56 w-56 relative m-6 border-2 rounded-lg  bg-white2">
         <Image
           className="image"
           src={`${process.env.DIRECTUS}assets/${data.obrazok}`}
           alt="Product Image"
           fill
-          // objectFit="contain"
-          // objectPosition="center"
-          // width={1500}
-          // height={1500}
         />
       </div>
       <div className=" w-full font-plus-jakarta text-h5 relative">
-        <p className=" text-center relative z-20">{data.nazov}</p>
-        <div className=" bg-blue1 w-16 h-2 absolute rounded-lg bottom-0 z-10  rotate-[-2deg] left-[180px] "></div>
+        <p className=" text-center relative z-20 text-h5">{data.meno}</p>
+        <div className="w-full rounded-xl  bg-blue1 h-1" />
+        <div className="flex flex-row font-plus-jakarta h-16 items-center drop-shadow-xl">
+          <p className="m-6">{data.cena}€</p>
+          <ToCart />
+        </div>
       </div>
     </button>
   );
