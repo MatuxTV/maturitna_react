@@ -28,6 +28,7 @@ export default async function Home() {
           <Image
             src="/IMG/banner.png"
             alt="main"
+
             fill
             className="relative z-10"
             objectFit="contain"

@@ -12,10 +12,14 @@ const Nav = (props) => {
             className="z-20 md:m-6"
             src="/IMG/logo.png"
             alt="patras.sk"
-            height={150}
+            sizes="60vw"
             width={150}
-            objectFit="contain"
-            objectPosition="left"
+            height={150}
+            style={{width: "100%", height: "auto",}}
+            // height={150}
+            // width={150}
+            // objectFit="contain"
+            // objectPosition="left"
           />
           </div>
           
@@ -37,7 +41,7 @@ const Nav = (props) => {
             type="button"
             className="bg-blue1 w-24 h-12 rounded-lg hover:bg-blue2 hover:drop-shadow-md shadow"
           >
-            <i className="fas fa-cart-shopping text-white1"/>
+            <i className="fas fa-cart-shopping text-white1 "/>
           </button>
         </Link>
       </div>

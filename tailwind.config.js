@@ -24,7 +24,7 @@ module.exports = {
       green: "rgba(0, 219, 88, 1)",
     },
     fontFamily: {
-      "plus-jakarta": ["Plus Jakarta Sans", "sans-serif"],
+      "plus-jakarta": ["Signika", "sans-serif"],
     },
     extend: {},
     fontSize: {
