@@ -15,8 +15,8 @@ export default async function ProductCard(data) {
           // height={1500}
         />
       </div>
-      <div className=" w-full font-plus-jakarta text-h5 relative">
-        <p className=" text-center relative z-20">{data.nazov}</p>
+      <div className=" w-full  text-h5 relative">
+        <p className=" text-center relative z-20 font-plus-jakarta">{data.nazov}</p>
         <div className=" bg-blue1 w-16 h-2 absolute rounded-lg bottom-0 z-10  rotate-[-2deg] left-[180px] "></div>
       </div>
     </button>

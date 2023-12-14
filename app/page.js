@@ -7,7 +7,7 @@ import Script from "next/script";
 
 const ABT = (props) => {
   return (
-    <div className="flex flex-col items-center m-3 text-center w-1/3">
+    <div className="flex flex-col items-center m-3 text-center w-2/3">
       <div className="bg-blue2 relative w-full h-40 rounded-xl">
         <Image className="p-8 image" src={props.type} fill alt=""/>
       </div>
@@ -35,7 +35,7 @@ export default async function Home() {
           />
 
           <div className="relative">
-            <Nav  />
+            <Nav product={"Produkty"}  />
           </div>
 
           <div className="relative left-[6%] w-[20vw] h-[25vw] md:w-[30vw] md:h-[35vw]">
@@ -67,7 +67,7 @@ export default async function Home() {
         <Card image={"/IMG/vodovac1.png"} label="Vodovac" />
       </div>
 
-      <div className="m-24 mx-44  flex  h-86 bg-blue1 justify-center rounded-3xl">
+      <div className="m-24 mx-56 flex h-86 bg-blue1 justify-center rounded-3xl">
         <ABT
           type={"/IMG/BOTTLE.png"}
           title={"PREDAJ VOD A NEALKOHOLICKYCH NAPOJOV"}
@@ -79,12 +79,12 @@ export default async function Home() {
       <div className="flex bg-white2 w-[88%] max-w-6xl m-auto rounded-3xl justify-between md:rounded-[40px] h-24 md:h-64 max-h-64">
         <div>
           <div>
-            <p className="font-plus-jakarta text-h7 text-blue1 mx-4 my-2 md:m-8 md:text-h3">
+            <p className="font-plus-jakarta text-h7 text-blue1 mx-4 my-1 md:m-8 md:text-h3">
               Vedeli ste ze...?
             </p>
           </div>
           <div>
-            <p className="font-plus-jakarta flex text-black2 m-4 md:m-10 md:text-h7 text-[7px]">
+            <p className="font-plus-jakarta flex text-black2 m-3 md:m-10 md:text-h7 text-[5px]">
               Pocit smädu je reakciou organizmu na začínajúcu dehydratáciu.
               Objavuje sa až vo chvíli, keď už vaše telo stratilo viac ako 1 %
               tekutín. Mali by ste preto piť priebežne behom celého dňa, nie až

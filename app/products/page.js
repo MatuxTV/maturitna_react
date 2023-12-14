@@ -32,20 +32,19 @@ export const Produkty = async () => {
   }
   return (
     <div>
-
-      <Nav />
-      
+      <Nav product={"Produkty"} />
       <div>
         <div>
-          <p className="flex text-h4 m-10 font-plus-jakarta">Produkty/{data.meno}</p>
+          <p className="flex text-h4 m-10 font-plus-jakarta">
+            Produkty/{data.meno}
+          </p>
         </div>
         <div className="flex flex-wrap justify-start m-8 space-x-5">
           {data?.map((item) => {
             return <Product {...item} key={item.id} />;
           })}
-          </div>
+        </div>
       </div>
-
     </div>
   );
 };

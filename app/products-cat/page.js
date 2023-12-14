@@ -9,12 +9,10 @@ export const Produkty = async () => {
   function getProducts() {
     return fetch(process.env.DIRECTUS + "items/kategoria").then((res) =>res.json(), {cache :"no-store"})
   }
-  
   async function fetchData() {
     const data = await getProducts();
     return data;
   }
-
   const res= await fetchData();
   const data = res.data;
   
@@ -36,8 +34,6 @@ export const Produkty = async () => {
   
         </div>
       </div>
-
-      {/* {products.data.map((product) => (<ProductCard meno={"meno"} key={product.id}/>))} */}
     </div>
   );
 };

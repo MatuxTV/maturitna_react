@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const Nav = () => {
+const Nav = (props) => {
   return (
     <nav className="relative items-center flex justify-between px-4 md:py-2 z-20">
       <div className="flex items-center ">
@@ -12,7 +12,8 @@ const Nav = () => {
             className="z-20 md:m-6"
             src="/IMG/logo.png"
             alt="patras.sk"
-            fill
+            height={150}
+            width={150}
             objectFit="contain"
             objectPosition="left"
           />
@@ -27,7 +28,7 @@ const Nav = () => {
               href="/products-cat"
               className="no-underline text-black1 text-h7 md:text-h6"
             >
-              Produkty
+              {props.product}
             </Link>
           </li>
         </ul>
