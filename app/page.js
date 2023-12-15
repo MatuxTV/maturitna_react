@@ -4,12 +4,14 @@ import Card from "./componets/card";
 import Nav from "./componets/nav";
 import Head from "next/head";
 import Script from "next/script";
+import ProductCard from "./componets/productcard";
+import { getCategory } from "@/lib/action";
 
 const ABT = (props) => {
   return (
     <div className="flex flex-col items-center m-3 text-center w-2/3">
       <div className="bg-blue2 relative w-full h-40 rounded-xl">
-        <Image className="p-8 image" src={props.type} fill alt=""/>
+        <Image className="p-8 image" src={props.type} fill alt="" />
       </div>
       <div className="flex align-center">
         <p className=" bg-white text-white1 w-full pt-6 font-plus-jakarta text-h5 mx-auto">
@@ -21,6 +23,9 @@ const ABT = (props) => {
 };
 
 export default async function Home() {
+  const category = await getCategory()
+
+  console.log(category)
   return (
     <div className="min-h-screen flex flex-col">
       <div className="flex items-center justify-center h-full">
@@ -28,7 +33,6 @@ export default async function Home() {
           <Image
             src="/IMG/banner.png"
             alt="main"
-
             fill
             className="relative z-10"
             objectFit="contain"
@@ -36,7 +40,7 @@ export default async function Home() {
           />
 
           <div className="relative">
-            <Nav product={"Produkty"}  />
+            <Nav product={"Produkty"} />
           </div>
 
           <div className="relative left-[6%] w-[20vw] h-[25vw] md:w-[30vw] md:h-[35vw]">
@@ -63,9 +67,9 @@ export default async function Home() {
         className="p-0 w-28 self-center md:w-64"
       />
       <div className="flex justify-center p-4 md:p-12 space-x-4 md:space-x-12">
-        <Card image={"/IMG/kavomat1.png"} label="Kavomaty" />
-        <Card image={"/IMG/lima1.png"} label="Davkovac vody" />
-        <Card image={"/IMG/vodovac1.png"} label="Vodovac" />
+        {category.data?.map((item) => {
+          return <ProductCard {...item} key={item.id} />;
+        })}
       </div>
 
       <div className="m-24 mx-56 flex h-86 bg-blue1 justify-center rounded-3xl">

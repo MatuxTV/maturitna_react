@@ -7,16 +7,18 @@ import { readItems } from "@directus/sdk";
 
 export const Produkty = async () => {
   function getProducts() {
-    return fetch(process.env.DIRECTUS + "items/kategoria").then((res) =>res.json(), {cache :"no-store"})
+    return fetch(process.env.DIRECTUS + "items/kategoria").then(
+      (res) => res.json(),
+      { cache: "no-store" }
+    );
   }
   async function fetchData() {
     const data = await getProducts();
     return data;
   }
-  const res= await fetchData();
+  const res = await fetchData();
   const data = res.data;
-  
-  
+
   return (
     <div>
       <Nav />
@@ -27,11 +29,9 @@ export const Produkty = async () => {
           </h1>
         </div>
         <div className="flex flex-wrap flex-row space-x-16 m-16">
-        {data?.map((item)=>{
-          return<ProductCard {...item} key={item.id}/>
-        })}
-          
-  
+          {data?.map((item) => {
+            return<ProductCard {...item} key={item.id} />;
+          })}
         </div>
       </div>
     </div>
