@@ -6,7 +6,7 @@ export default function Product(data) {
 
   return (
     <div>
-      <a className="bg-white2 md:w-96 md:h-[400px] flex flex-col border-2 items-center border-white2 rounded-2xl hover:bg-blue2 " href="">
+      <a className="bg-white2 md:w-96 md:h-[400px] flex flex-col border-2 items-center border-white2 rounded-2xl hover:bg-blue2 " href="/products-info">
         <div className="justify-center item-center border-1 border-black2 border-opacity-1 h-56 w-56 relative m-6 border-2 rounded-lg  bg-white2">
           <Image
             className="image"
@@ -24,7 +24,7 @@ export default function Product(data) {
               <ToCart />
             </div>
           </div>
-          <p className={`${available ? "text-blue1" : "text-red"} text-center `} >
+          <p className={`${available ? "text-blue1 text-h6" : "text-red text-h6"} text-center `} >
             {available ? "Skladom" : "Nedostupne"}
           </p>
         </div>
