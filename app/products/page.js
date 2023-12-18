@@ -9,7 +9,7 @@ export const Produkty = async ({ searchParams }) => {
 
   function getProducts() {
     return fetch(
-      process.env.DIRECTUS +
+      process.env.NEXT_PUBLIC_DIRECTUS +
         `items/produkty?filter[kategoria][id][_eq]=${category}`,
       {
         cache: "no-store",
@@ -17,7 +17,7 @@ export const Produkty = async ({ searchParams }) => {
     ).then((res) => res.json());
   }
   function getCategory() {
-    return fetch(process.env.DIRECTUS + `items/kategoria/${category}`, {
+    return fetch(process.env.NEXT_PUBLIC_DIRECTUS + `items/kategoria/${category}`, {
       cache: "no-store",
     }).then((res) => res.json());
   }

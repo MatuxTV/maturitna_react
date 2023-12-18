@@ -7,8 +7,10 @@ const ToCart = ({ product }) => {
   const { addToCart } = useCart(); // Use the hook
   const [message, setMessage] = useState(null);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e) => {
     try{
+      e.preventDefault();
+      e.stopPropagation();
       addToCart(product);
       setMessage('Added to cart!');
     } catch (error) {

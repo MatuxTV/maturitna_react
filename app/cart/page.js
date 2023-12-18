@@ -5,13 +5,12 @@ import { useCart } from "../../lib/cart-context"; // Adjust the import path acco
 import Nav from "../componets/nav";
 
 const CartItem = ({ item }) => {
-  const { removeFromCart } = useCart(); // Use the removeFromCart function from context
-
+  const { removeFromCart,changeQuantity } = useCart(); // Use the removeFromCart function from context
   return (
     <div className="flex items-center justify-between p-4 border-b">
       <div className="flex items-center">
         <Image
-          src={`${process.env.DIRECTUS}assets/${item.obrazok}`}
+          src={`${process.env.NEXT_PUBLIC_DIRECTUS}assets/${item.obrazok}`}
           alt={item.meno}
           width={80}
           height={80}
@@ -32,6 +31,7 @@ const CartItem = ({ item }) => {
           type="number"
           min="1"
           value={item.quantity}
+          onChange={(e)=>{changeQuantity(item.id,e.target.value)}}
           className="w-12 text-center border rounded"
           // You would also need a function to handle quantity changes
         />

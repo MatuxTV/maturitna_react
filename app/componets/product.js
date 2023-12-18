@@ -10,7 +10,7 @@ export default function Product(data) {
         <div className="justify-center item-center border-1 border-black2 border-opacity-1 h-56 w-56 relative m-6 border-2 rounded-lg  bg-white2">
           <Image
             className="image"
-            src={`${process.env.DIRECTUS}assets/${data.obrazok}`}
+            src={`${process.env.NEXT_PUBLIC_DIRECTUS}assets/${data.obrazok}`}
             alt="Product Image"
             fill
           />
@@ -21,7 +21,7 @@ export default function Product(data) {
           <div className="flex flex-row font-plus-jakarta h-16 items-center drop-shadow-xl justify-between">
             <p className="m-6">{data.cena}€</p>
             <div className="drop-shadow-md m-4">
-              <ToCart />
+              <ToCart product={data}/>
             </div>
           </div>
           <p className={`${available ? "text-blue1 text-h6" : "text-red text-h6"} text-center `} >

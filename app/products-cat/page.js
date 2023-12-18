@@ -7,7 +7,7 @@ import { readItems } from "@directus/sdk";
 
 export const Produkty = async () => {
   function getProducts() {
-    return fetch(process.env.DIRECTUS + "items/kategoria",{ cache: "no-store" }).then(
+    return fetch(process.env.NEXT_PUBLIC_DIRECTUS + "items/kategoria",{ cache: "no-store" }).then(
       (res) => res.json(),
     );
   }
