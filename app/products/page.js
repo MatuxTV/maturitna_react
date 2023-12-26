@@ -24,6 +24,7 @@ export const Produkty = async ({ searchParams }) => {
   const products = await getProducts();
   const kategoria = await getCategory();
 
+
   return (
     <div>
       <Nav product={"Produkty"} />
