@@ -1,47 +1,43 @@
 import React from "react";
 import Nav from "../componets/nav";
-import Product from "../componets/product";
-import Link from "next/link"; 
+import Link from "next/link";
 
-
-const Produkty = async ({ searchParams }) => {
-
-  const category = searchParams.kategoria;
-
+export const Produkt = async ({ searchParams }) => {
+  const product = searchParams.produkty;
 
   function getProducts() {
     return fetch(
-      process.env.NEXT_PUBLIC_DIRECTUS +
-        `items/produkty?filter[kategoria][id][_eq]=${category}`,
+      process.env.NEXT_PUBLIC_DIRECTUS + `items/produkty?filter[produkty][id][_eq]=${product}`,
       {
         cache: "no-store",
       }
     ).then((res) => res.json());
   }
   function getCategory() {
-    return fetch(process.env.NEXT_PUBLIC_DIRECTUS + `items/kategoria/${category}`, {
-      cache: "no-store",
-    }).then((res) => res.json());
+    return fetch(
+      process.env.NEXT_PUBLIC_DIRECTUS + `items/kategoria/${product}`,
+      {
+        cache: "no-store",
+      }
+    ).then((res) => res.json());
   }
-  const products = await getProducts();
+  const produkt = await getProducts();
   const kategoria = await getCategory();
 
-  console.log(products);
+  console.log(kategoria);
 
   return (
-    
-    <div>
+    <>
       <Nav product={"Produkty"} />
-      <div>
-          {/* <Link href="/products-cat">
-            <p className="flex text-h4 m-10 font-plus-jakarta">
-              Produkty/{kategoria.nazov}
-            </p>
-          </Link> */}
-        
-      </div>
-    </div>
+      <>
+        <Link href="/products-cat">
+          <p className="flex text-h4 m-10 font-plus-jakarta">
+            Produkty/{kategoria.data.nazov}
+          </p>
+        </Link>
+      </>
+    </>
   );
 };
 
-export default Produkty;
+export default Produkt;

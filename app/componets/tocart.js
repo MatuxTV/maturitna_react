@@ -1,26 +1,29 @@
-'use client';
-import React from 'react';
-import { useCart } from '../../lib/cart-context'; // Import the hook
-import { useState } from 'react';
+"use client";
+import React from "react";
+import { useCart } from "../../lib/cart-context"; // Import the hook
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ToCart = ({ product }) => {
   const { addToCart } = useCart(); // Use the hook
-  const [message, setMessage] = useState(null);
 
   const handleAddToCart = (e) => {
-    try{
-      e.preventDefault();
-      e.stopPropagation();
+    e.preventDefault();
+    e.stopPropagation();
+    try {
       addToCart(product);
-      setMessage('Added to cart!');
+      toast.success("Produkt bol pridaný do košíka!"); // Zobrazenie úspešného toastu
     } catch (error) {
-      setMessage('Error adding to cart!');
+      toast.error("Nepodarilo sa pridať produkt do košíka."); // Zobrazenie chybového toastu
     }
   };
 
   return (
     <div>
-      <button onClick={handleAddToCart} className="bg-blue1 rounded-md hover:shadow">
+      <button
+        onClick={handleAddToCart}
+        className="bg-blue1 rounded-md hover:shadow"
+      >
         <div className="flex flex-row items-center">
           <div className="flex">
             <i className="fa-solid fa-cart-arrow-down text-white1 m-2" />
@@ -30,7 +33,6 @@ const ToCart = ({ product }) => {
           </div>
         </div>
       </button>
-      {message && <p className={`text-${message.includes('úspešne') ? 'green' : 'red'}-600 mt-2`}>{message}</p>}
     </div>
   );
 };
