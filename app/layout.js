@@ -5,6 +5,7 @@ import Script from "next/script";
 import Head from "next/head";
 import Link from "next/link";
 import { CartProvider } from "@/lib/cart-context";
+import { TodoContext, TodoContextProvider } from "./componets/user";
 
 
 const plus_jakarta = Plus_Jakarta_Sans({
@@ -32,6 +33,9 @@ export default function RootLayout({ children }) {
       <body className={plus_jakarta.className}>
       
           <CartProvider>
+            <TodoContextProvider>
+
+            
             <div className="hidden bg-white2 drop-shadow md:flex content-center p-2 gap-8 px-6">
               <a
                 className="flex items-center gap-3"
@@ -82,7 +86,9 @@ export default function RootLayout({ children }) {
                 </a>
               </div>
             </footer>
+            </TodoContextProvider>
           </CartProvider>
+          
           
       </body>
     </html>

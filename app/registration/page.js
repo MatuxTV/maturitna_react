@@ -10,23 +10,23 @@ const RegisterPage = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const singUpMutation = useMutation((newUser) => {
-    setData(users, { data: newUser }, "/system").then((response) => {
-      console.log(response);
-    });
-  });
+  // const singUpMutation = useMutation((newUser) => {
+  //   setData(users, { data: newUser }, "/system").then((response) => {
+  //     console.log(response);
+  //   });
+  // });
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
+  // const handleRegister = async (e) => {
+  //   e.preventDefault();
 
-    singUpMutation.mutate({
-      email: e.target.email.value,
-      password: e.target.password.value,
-      role: "bb4da356-49ec-44b3-88af-5c8612676ae4",
-      status: "active",
-      provider: "",
-    });
-  };
+  //   singUpMutation.mutate({
+  //     email: e.target.email.value,
+  //     password: e.target.password.value,
+  //     role: "bb4da356-49ec-44b3-88af-5c8612676ae4",
+  //     status: "active",
+  //     provider: "",
+  //   });
+  // };
 
   // try {
   //   // Vložte logiku pre registráciu používateľa do databázy
@@ -46,7 +46,7 @@ const RegisterPage = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
         <form
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-          onSubmit={handleRegister}
+          // onSubmit={handleRegister}
         >
           <div className="mb-4">
             <label
