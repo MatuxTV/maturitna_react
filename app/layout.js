@@ -5,7 +5,7 @@ import Script from "next/script";
 import Head from "next/head";
 import Link from "next/link";
 import { CartProvider } from "@/lib/cart-context";
-import { QueryClientProvider } from "react-query";
+
 
 const plus_jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
         <meta name="description" content={metadata.description} />
       </Head>
       <body className={plus_jakarta.className}>
-        <QueryClientProvider client={queryClient}>
+      
           <CartProvider>
             <div className="hidden bg-white2 drop-shadow md:flex content-center p-2 gap-8 px-6">
               <a
@@ -83,7 +83,7 @@ export default function RootLayout({ children }) {
               </div>
             </footer>
           </CartProvider>
-        </QueryClientProvider>
+          
       </body>
     </html>
   );
