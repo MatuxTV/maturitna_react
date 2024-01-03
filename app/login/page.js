@@ -1,55 +1,34 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import Nav from "../componets/nav"; // Uistite sa, že cesta k komponentu Nav je správna
+import Nav from "../componets/nav"; 
 import Link from "next/link";
 
-export default function RegisterPage() {
-  // Stavy pre uchovanie údajov z formulára a chybové hlásenie
-  const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    password: "",
-  });
-  const [error, setError] = useState(""); // Stav pre chybové hlásenia
+const LoginPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(""); 
 
-  async function createUser() {
-    try {
-      const response = await fetch("http://localhost:8055/users", {
-        method: "POST",
-        body: JSON.stringify({
-          ...formData,
-          role: "1cd7f22f-ed72-48cd-8bc4-8ec0321beb50", // Nastavte ID role pre nových užívateľov
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+  async function loginUser() {
+    const response = await fetch("http://localhost:8055/auth/login", {
+      method: "POST",
+      body: JSON.stringify({ email, password }),
+      headers: { "Content-Type": "application/json" },
+    });
 
-      const userData = await response.json();
-      if (response.ok && userData.data && userData.data.id) {
-        // Registrácia prebehla úspešne
-        console.log("Užívateľ úspešne vytvorený:", userData.data);
+    const tokens = await response.json();
+    if (response.ok) {
+        console.log(tokens);
       } else {
-        // Nastavenie chybovej správy ak registrácia zlyhala
-        setError(userData.error || "Registrácia zlyhala. Skúste znova.");
+        setError("Prihlásenie zlyhalo: " + (tokens.error || "Nespecifikovaná chyba")); // Aktualizujte chybový stav
       }
-    } catch (e) {
-      setError("Registrácia zlyhala. Skúste znova."); // Nastavenie chybovej správy
-    }
+    console.log(tokens);
   }
 
-  function handleSubmit(e) {
-    e.preventDefault(); // Zabráňte predvolenému správaniu formulára
-    setError(""); // Vynulujte predchádzajúce chyby
-    createUser(); // Vytvorte užívateľa
-  }
-
-  function handleChange(e) {
-    // Aktualizujte formData na základe zmien vo formulári
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Zabráni predvolenému správaniu formulára (refresh stránky)
+    loginUser();
+  };
 
   return (
     <>
@@ -72,7 +51,7 @@ export default function RegisterPage() {
               {" "}
               {/* Nadpis formulára */}
               <p className="text-h4 text-black1 font-plus-jakarta m-4">
-                Registrácia
+                Prihlásenie
               </p>
             </div>
 
@@ -86,10 +65,12 @@ export default function RegisterPage() {
               </label>
               <input
                 className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="email"
                 type="email"
-                placeholder="E-mail"
-                onChange={handleChange}
+                name="email"
+                id="email"
+                value={email}
+                placeholder="Váš e-mail"
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
@@ -104,25 +85,14 @@ export default function RegisterPage() {
               </label>
               <input
                 className="shadow appearance-none rounded w-full py-2 px-3 text-black1 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                id="password"
                 type="password"
-                placeholder="Heslo"
-                onChange={handleChange}
-                minLength={8} // Minimálna dĺžka hesla
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" // Mínimálne požiadavky na heslo
+                name="password"
+                id="password"
+                placeholder="Vaše heslo"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
-            </div>
-
-            {/* Súhlas s podmienkami */}
-            <div className="align-middle">
-              <input type="checkbox" id="terms" required />
-              <label
-                className="font-plus-jakarta text-black1 mx-2"
-                htmlFor="terms"
-              >
-                Súhlasím s podmienkami PATRAS.SK
-              </label>
             </div>
 
             {/* Tlačidlo na odoslanie formulára */}
@@ -131,7 +101,7 @@ export default function RegisterPage() {
                 className="font-plus-jakarta m-5 bg-blue1 p-2 rounded-lg hover:bg-blue2"
                 type="submit"
               >
-                Registrovať
+                Prihlásiť sa
               </button>
             </div>
 
@@ -141,7 +111,7 @@ export default function RegisterPage() {
             {/* Odkaz na prihlásenie */}
             <div className="justify-start mt-3">
               <p>
-                Už máš účet? <Link href="/login">Prihlás sa</Link>
+                Este nemas ucet? <Link href="/registration">Registruj sa!</Link>
               </p>
             </div>
           </form>
@@ -149,4 +119,6 @@ export default function RegisterPage() {
       </div>
     </>
   );
-}
+};
+
+export default LoginPage;
