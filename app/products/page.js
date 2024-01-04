@@ -27,7 +27,7 @@ export const Produkty = async ({ searchParams }) => {
   const products = await getProducts();
   const kategoria = await getCategory();
 
-  console.log(kategoria);
+  console.log(products);
 
   return (
     <div>
