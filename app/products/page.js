@@ -9,7 +9,8 @@ export const Produkty = async ({ searchParams }) => {
 
   function getProducts() {
     return fetch(
-      process.env.NEXT_PUBLIC_DIRECTUS + `items/produkty?filter[kategoria][id][_eq]=${category}`,
+      process.env.NEXT_PUBLIC_DIRECTUS +
+        `items/produkty?filter[kategoria][id][_eq]=${category}`,
       {
         cache: "no-store",
       }

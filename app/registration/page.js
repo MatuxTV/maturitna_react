@@ -20,7 +20,7 @@ export default function RegisterPage() {
         method: "POST",
         body: JSON.stringify({
           ...formData,
-          role: "1cd7f22f-ed72-48cd-8bc4-8ec0321beb50", // Nastavte ID role pre nových užívateľov
+          role: "bb4da356-49ec-44b3-88af-5c8612676ae4", // Nastavte ID role pre nových užívateľov
         }),
         headers: {
           "Content-Type": "application/json",
