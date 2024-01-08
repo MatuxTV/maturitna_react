@@ -4,31 +4,22 @@ import Image from "next/image";
 import ToCart from "../componets/tocart";
 
 const Produkt = async ({ searchParams }) => {
-  const productID = searchParams.produkty;
 
+  const productID = searchParams.id;
 
-
-  function getProducts() {
+  console.log(searchParams)
+  function getProduct() {
     return fetch(
       process.env.NEXT_PUBLIC_DIRECTUS +
-        `items/produkty?filter[kategoria][id][_eq]=${[productID]}`,
+        `items/produkty/${productID}`,
       {
         cache: "no-store",
       }
     ).then((res) => res.json());
   }
-  function getCategory() {
-    return fetch(
-      process.env.NEXT_PUBLIC_DIRECTUS + `items/kategoria/${productID}`,
-      {
-        cache: "no-store",
-      }
-    ).then((res) => res.json());
-  }
-  const produkt = await getProducts();
-  const kategoria = await getCategory();
-
-  console.log(produkt);
+  
+  const produkt = await getProduct();
+  console.log(produkt)
   // useEffect(() => {
   //   async function fetchData() {
   //     const productResponse = await fetch(
@@ -57,31 +48,29 @@ const Produkt = async ({ searchParams }) => {
       <Nav product={"Produkty"} />
       <div className="">
         <div>
-          <Link href="/products">
+          {/* <Link href="/products">
             <p className="flex text-h4 m-10 font-plus-jakarta">
               Produkty/{kategoria.nazov}
             </p>
-          </Link>
+          </Link> */}
         </div>
         <div className="flex flex-row">
           <div className="w-1/2 border justify-center items-center">
             <Image
               // Uncomment and use the following line if the image should be responsive
               // layout="responsive"
-              src="/IMG/kavomat.png" // Replace with produkt.obrazok when available
-              alt={produkt.nazov} // Replace with actual product name
+              src={`${process.env.NEXT_PUBLIC_DIRECTUS}assets/${produkt.data.obrazok}`}
+              alt={produkt.data.meno} // Replace with actual product name
               width={500}
               height={500}
             />
           </div>
           <div className="w-1/2">
             {/* Uncomment and use the following lines if the product data is available */}
-            {/* <h1>{produkt.nazov}</h1>
-            <p>{produkt.popis}</p>
-            <p>{produkt.cena}</p> */}
-            <h1>LIMA-2K</h1>
-            <p>Dobry vodovac super mnam ahoj</p>
-            <p>22</p>
+            <h1>{produkt.data.meno}</h1>
+            <p>{produkt.data.popisok}</p>
+            <p>{produkt.data.cena}</p>
+            
             <ToCart product={produkt} />
           </div>
         </div>

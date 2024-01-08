@@ -5,6 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const Produkty = async ({ searchParams }) => {
+  
   const category = searchParams.kategoria;
 
   function getProducts() {
