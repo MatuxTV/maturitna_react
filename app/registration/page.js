@@ -7,8 +7,6 @@ import Link from "next/link";
 export default function RegisterPage() {
   // Stavy pre uchovanie údajov z formulára a chybové hlásenie
   const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
     email: "",
     password: "",
   });
@@ -16,6 +14,7 @@ export default function RegisterPage() {
 
   async function createUser() {
     try {
+      console.log(formData);
       const response = await fetch("http://localhost:8055/users", {
         method: "POST",
         body: JSON.stringify({
@@ -48,6 +47,7 @@ export default function RegisterPage() {
 
   function handleChange(e) {
     // Aktualizujte formData na základe zmien vo formulári
+    console.log(e.target)
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
@@ -87,6 +87,7 @@ export default function RegisterPage() {
               <input
                 className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="email"
+                name="email"
                 type="email"
                 placeholder="E-mail"
                 onChange={handleChange}
@@ -105,11 +106,12 @@ export default function RegisterPage() {
               <input
                 className="shadow appearance-none rounded w-full py-2 px-3 text-black1 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                 id="password"
+                name="password"
                 type="password"
                 placeholder="Heslo"
                 onChange={handleChange}
                 minLength={8} // Minimálna dĺžka hesla
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" // Mínimálne požiadavky na heslo
+                // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" // Mínimálne požiadavky na heslo
                 required
               />
             </div>
